@@ -105,7 +105,7 @@ class Money implements \JsonSerializable
      * @return mixed data which can be serialized by <b>json_encode</b>,
      * @link   http://php.net/manual/en/jsonserializable.jsonserialize.php
      */
-    public function jsonSerialize()
+    public function jsonSerialize(): mixed
     {
         return [
             'amount'   => $this->amount,
@@ -118,7 +118,7 @@ class Money implements \JsonSerializable
      *
      * @return integer
      */
-    public function getAmount()
+    public function getAmount(): int
     {
         return $this->amount;
     }
@@ -128,7 +128,7 @@ class Money implements \JsonSerializable
      *
      * @return float
      */
-    public function getConvertedAmount()
+    public function getConvertedAmount(): float
     {
         return round($this->amount / $this->currency->getSubUnit(), $this->currency->getDefaultFractionDigits());
     }
@@ -139,7 +139,7 @@ class Money implements \JsonSerializable
      *
      * @return \SebastianBergmann\Money\Currency
      */
-    public function getCurrency()
+    public function getCurrency(): Currency
     {
         return $this->currency;
     }
@@ -190,7 +190,7 @@ class Money implements \JsonSerializable
      *
      * @return static
      */
-    public function negate()
+    public function negate(): static
     {
         return $this->newMoney(-1 * $this->amount);
     }
@@ -227,7 +227,7 @@ class Money implements \JsonSerializable
      * @return static[]
      * @throws \SebastianBergmann\Money\InvalidArgumentException
      */
-    public function allocateToTargets($n)
+    public function allocateToTargets($n): array
     {
         if (!is_int($n)) {
             throw new InvalidArgumentException('$n must be an integer');
@@ -256,7 +256,7 @@ class Money implements \JsonSerializable
      * @param  array $ratios
      * @return static[]
      */
-    public function allocateByRatios(array $ratios)
+    public function allocateByRatios(array $ratios): array
     {
         /** @var \SebastianBergmann\Money\Money[] $result */
         $result    = [];
@@ -292,7 +292,7 @@ class Money implements \JsonSerializable
      * @return static[]
      * @see    https://github.com/sebastianbergmann/money/issues/27
      */
-    public function extractPercentage($percentage, $roundingMode = PHP_ROUND_HALF_UP)
+    public function extractPercentage($percentage, $roundingMode = PHP_ROUND_HALF_UP): array
     {
         $percentage = $this->newMoney(
             $this->castToInt(
@@ -317,7 +317,7 @@ class Money implements \JsonSerializable
      * @return integer -1|0|1
      * @throws \SebastianBergmann\Money\CurrencyMismatchException
      */
-    public function compareTo(Money $other)
+    public function compareTo(Money $other): int
     {
         $this->assertSameCurrency($this, $other);
 
@@ -335,7 +335,7 @@ class Money implements \JsonSerializable
      * @return boolean
      * @throws \SebastianBergmann\Money\CurrencyMismatchException
      */
-    public function equals(Money $other)
+    public function equals(Money $other): bool
     {
         return $this->compareTo($other) == 0;
     }
@@ -348,7 +348,7 @@ class Money implements \JsonSerializable
      * @return boolean
      * @throws \SebastianBergmann\Money\CurrencyMismatchException
      */
-    public function greaterThan(Money $other)
+    public function greaterThan(Money $other): bool
     {
         return $this->compareTo($other) == 1;
     }
@@ -361,7 +361,7 @@ class Money implements \JsonSerializable
      * @return boolean
      * @throws \SebastianBergmann\Money\CurrencyMismatchException
      */
-    public function greaterThanOrEqual(Money $other)
+    public function greaterThanOrEqual(Money $other): bool
     {
         return $this->greaterThan($other) || $this->equals($other);
     }
@@ -374,7 +374,7 @@ class Money implements \JsonSerializable
      * @return boolean
      * @throws \SebastianBergmann\Money\CurrencyMismatchException
      */
-    public function lessThan(Money $other)
+    public function lessThan(Money $other): bool
     {
         return $this->compareTo($other) == -1;
     }
@@ -387,7 +387,7 @@ class Money implements \JsonSerializable
      * @return boolean
      * @throws \SebastianBergmann\Money\CurrencyMismatchException
      */
-    public function lessThanOrEqual(Money $other)
+    public function lessThanOrEqual(Money $other): bool
     {
         return $this->lessThan($other) || $this->equals($other);
     }

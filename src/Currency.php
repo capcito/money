@@ -1177,7 +1177,7 @@ class Currency
      *
      * @return string
      */
-    public function getCurrencyCode()
+    public function getCurrencyCode(): string
     {
         return $this->currencyCode;
     }
@@ -1188,7 +1188,7 @@ class Currency
      *
      * @return integer
      */
-    public function getDefaultFractionDigits()
+    public function getDefaultFractionDigits(): int
     {
         return self::$currencies[$this->currencyCode]['default_fraction_digits'];
     }
@@ -1198,7 +1198,7 @@ class Currency
      *
      * @return string
      */
-    public function getDisplayName()
+    public function getDisplayName(): string
     {
         return self::$currencies[$this->currencyCode]['display_name'];
     }
@@ -1208,7 +1208,7 @@ class Currency
      *
      * @return integer
      */
-    public function getNumericCode()
+    public function getNumericCode(): int
     {
         return self::$currencies[$this->currencyCode]['numeric_code'];
     }
@@ -1218,7 +1218,7 @@ class Currency
      *
      * @return integer
      */
-    public function getSubUnit()
+    public function getSubUnit(): int
     {
         return self::$currencies[$this->currencyCode]['sub_unit'];
     }
@@ -1228,7 +1228,7 @@ class Currency
      *
      * @return string
      */
-    public function __toString()
+    public function __toString(): string
     {
         return $this->currencyCode;
     }

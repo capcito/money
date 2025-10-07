@@ -27,5 +27,5 @@ interface Formatter
      * @param  \SebastianBergmann\Money\Money $money
      * @return string
      */
-    public function format(Money $money);
+    public function format(Money $money): string;
 }
