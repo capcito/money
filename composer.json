@@ -19,7 +19,6 @@
     }
   ],
   "require": {
-    "sebastian/money": "dev-master",
     "php": "^8.3",
     "ext-intl": "*"
   },
@@ -27,11 +26,6 @@
     "classmap": [
       "src/"
     ]
-  },
-  "extra": {
-    "branch-alias": {
-      "dev-master": "1.6.x-dev"
-    }
   }
 }
 
