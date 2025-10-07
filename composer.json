@@ -1,28 +1,37 @@
 {
-    "name": "sebastian/money",
-    "description": "Value Object that represents a monetary value (using a currency's smallest unit)",
-    "keywords": ["money"],
-    "homepage": "http://www.github.com/sebastianbergmann/money",
-    "license": "BSD-3-Clause",
-    "authors": [
-        {
-            "name": "Sebastian Bergmann",
-            "email": "sebastian@phpunit.de"
-        }
-    ],
-    "require": {
-        "php": "^5.4|^7.0",
-        "ext-intl": "*"
-    },
-    "autoload": {
-        "classmap": [
-            "src/"
-        ]
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-master": "1.6.x-dev"
-        }
+  "name": "capcito/money",
+  "description": "Value Object that represents a monetary value (using a currency's smallest unit)",
+  "keywords": [
+    "money"
+  ],
+  "homepage": "http://www.github.com/capcito/money",
+  "license": "BSD-3-Clause",
+  "authors": [
+    {
+      "name": "Thomas Eriksson",
+      "email": "thomas.eriksson@capcito.com"
     }
+  ],
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/your-org/money"
+    }
+  ],
+  "require": {
+    "sebastian/money": "dev-master",
+    "php": "^8.3",
+    "ext-intl": "*"
+  },
+  "autoload": {
+    "classmap": [
+      "src/"
+    ]
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.6.x-dev"
+    }
+  }
 }
 
