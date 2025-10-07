@@ -15,7 +15,7 @@
   "repositories": [
     {
       "type": "vcs",
-      "url": "https://github.com/your-org/money"
+      "url": "https://github.com/capcito/money"
     }
   ],
   "require": {
